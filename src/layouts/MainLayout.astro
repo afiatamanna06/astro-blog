@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/footer/Footer.astro";
 import MainHead from "./MainHead.astro";
 
 const { title, description = "" } = Astro.props
@@ -6,8 +7,9 @@ const { title, description = "" } = Astro.props
 
 <html lang="en">
 	<MainHead title={title} description={description} />
-	<body>
+	<body class="w-[full] min-h-[100vh]">
 		<slot>
         </slot>
+		<Footer />
 	</body>
 </html>
