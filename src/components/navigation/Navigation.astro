@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon"
+import { navData } from "../../data/navData";
 const date = new Date().getFullYear().toString()
 ---
 
@@ -7,6 +8,9 @@ const date = new Date().getFullYear().toString()
     <a href="/">
         <Icon name="logomark" width="60" />
     </a>
-    <div>
+    <div class="flex items-center gap-6">
+        {navData.map(({ name, path }) => (
+            <a href={path}>{name}</a>
+        ))}
     </div>
 </nav>
