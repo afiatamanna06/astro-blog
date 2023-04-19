@@ -3,12 +3,18 @@ import MainLayout from "./MainLayout.astro";
 
 const { frontmatter } = Astro.props
 
-const { title, description } = frontmatter
+const { title, description, date, category, author, image } = frontmatter
 ---
 
 <MainLayout title="My Blog">
     <header>
-        <div></div>
+        <div>
+            <small>
+                <a href={`/category/${category}`}>{category}</a>
+            </small>
+            <h1>{title}</h1>
+            <p>by <a href={`/author/${author}`}>{author}</a> • {date}</p>
+        </div>
         <img src="" alt="" />
     </header>
     <div>
