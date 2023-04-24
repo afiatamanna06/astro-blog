@@ -1,8 +1,14 @@
 ---
+import PostCard from "../../components/home/PostCard.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const allPosts = await Astro.glob("./*.md")
 ---
 
 <MainLayout title="About">
+   {
+      allPosts.map((post) => <PostCard post={post} />)
+   }
    <ul>
      <li>
         <a href="./post-1/">Post 1</a>
