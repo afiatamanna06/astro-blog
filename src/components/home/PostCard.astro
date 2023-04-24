@@ -2,27 +2,34 @@
     import { Image, Picture } from '@astrojs/image/components';
 
     import { slugify, formatDate } from "../../utils/utils"
+    import CommonButton from '../common/CommonButton.astro';
 
     const { frontmatter, url } = Astro.props
     const { title, date, description, category, author, image } = frontmatter
 
 ---
 
-<article class="w-[100%] lg:w-[25rem] h-250 bg-white">
+<article class="w-[100%] lg:w-[25rem] bg-white rounded-md font-atkinson">
 
-    <small>
+    <div class="m-7">
         <a href={`/category/${slugify(category)}/`}
-            class="px-3 py-1 uppercase rounded-sm text-xs text-white bg-[#3945c6] font-medium font-atkinson">{category}</a>
-    </small>
+            class="px-3 py-1 uppercase rounded-sm text-xs text-white bg-black font-medium font-atkinson">{category}</a>
+    </div>
     <a href={url}>
         <Image src={image.src} alt={image.alt} width={500} height={250} format={"webp"} fit="cover" quality={80}
             aspectRatio={"4:1"} />
     </a>
     <div class="p-7">
-        <h1 class="mt-2 text-4xl font-semibold mb-2">{title}</h1>
-        <small class="text-center text-xl mb-6 md:mb-12">by <a href={`/author/${slugify(author)}/`}>{author}</a> •
-            {formatDate(date)}</small>
-        <p>{description}</p>
+        <div class="h-[16rem]">
+            <a href={url}>
+                <h1 class="mt-2 text-4xl font-semibold mb-2">{title}</h1>
+            </a>
+            <small class="text-xs mb-6 md:mb-12">by <a href={`/author/${slugify(author)}/`}>{author}</a> •
+                {formatDate(date)}</small>
+            <a href={url}>
+                <p class="text-lg mb-6">{description}</p>
+            </a>
+        </div>
+        <CommonButton name="Read Post" href={url} className={"bg-[#3945c6] text-white text-lg px-8 py-2 rounded font-atkinson"} />
     </div>
-
 </article>

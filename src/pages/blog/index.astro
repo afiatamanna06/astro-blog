@@ -6,11 +6,12 @@
 ---
 
 <MainLayout title="About">
-   <div class="flex justify-center">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+   <div class="flex justify-center py-10">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
          {
-         allPosts.map((post) =>
-         <PostCard frontmatter={post.frontmatter} url={post.url} />)
+         allPosts.map((post) => (
+         <PostCard frontmatter={post.frontmatter} url={post.url} />
+         ))
          }
       </div>
    </div>
