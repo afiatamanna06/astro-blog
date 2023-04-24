@@ -8,17 +8,17 @@ const { title, description, date, category, author, image } = frontmatter
 
 <MainLayout title="My Blog">
     <header class="flex flex-col items-center mt-14">
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center font-atkinson">
             <small>
-                <a href={`/category/${category}`} class="px-3 py-1 uppercase rounded-sm text-xs text-white bg-[#3945c6] font-medium">{category}</a>
+                <a href={`/category/${category}`} class="px-3 py-1 uppercase rounded-sm text-xs text-white bg-[#3945c6] font-medium font-atkinson">{category}</a>
             </small>
-            <h1 class="mt-3 text-center text-4xl font-semibold">{title}</h1>
-            <p class="text-center">by <a href={`/author/${author}`}>{author}</a> • {date}</p>
+            <h1 class="mt-6 text-center text-4xl font-semibold mb-5">{title}</h1>
+            <p class="text-center text-xl mb-12">by <a href={`/author/${author}`}>{author}</a> • {date}</p>
         </div>
         <img src="" alt="" />
     </header>
     <div>
-        <div>
+        <div class="font-atkinson text-xl">
             <slot />
         </div>
         <div></div>
