@@ -1,17 +1,19 @@
 ---
    import PostCard from "../../components/home/PostCard.astro";
    import MainLayout from "../../layouts/MainLayout.astro";
+   import { formatBlogPosts } from "../../utils/utils"
 
    const allPosts = await Astro.glob("./*.md")
+   const formattedPost = formatBlogPosts(allPosts)
 ---
 
 <MainLayout title="About">
    <div class="flex justify-center py-10">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
          {
-         allPosts.map((post) => (
-         <PostCard frontmatter={post.frontmatter} url={post.url} />
-         ))
+            formattedPost.map((post: any) => (
+            <PostCard frontmatter={post.frontmatter} url={post.url} />
+            ))
          }
       </div>
    </div>
