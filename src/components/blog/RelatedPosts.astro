@@ -1,0 +1,29 @@
+---
+    import { formatBlogPosts, formatDate, slugify } from "../../utils/utils";
+    const { relatedPosts } = Astro.props
+
+    /*const allPosts = await Astro.glob("../../pages/blog/*.md")
+    const formattedPost = formatBlogPosts(allPosts)
+    const allCategories = formattedPost.map((item: any) => item.frontmatter.category.toLowerCase()).flat()
+    const processedCategories = allCategories.reduce((acc: any, category: any) => {
+        const value = acc[category] || 0;
+
+        return {
+            ...acc,
+            [category]: value+1
+        }
+    }, {})*/
+
+---
+
+{
+    relatedPosts.map((post: any) => (
+        <div class="w-[100%] bg-white rounded-md font-atkinson p-6">
+            <h3 class="text-start text-xl font-semibold font-atkinson">
+                <a href={post.url}>{post.frontmatter.title}</a>
+            </h3>
+            <small class="text-xs mb-6 md:mb-12">by <a href={`/author/${slugify(post.frontmatter.author)}/`}>{post.frontmatter.author}</a> •
+                {formatDate(post.frontmatter.date)}</small>
+        </div>
+    ))
+}

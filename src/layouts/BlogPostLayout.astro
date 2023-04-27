@@ -2,22 +2,36 @@
     import MainLayout from "./MainLayout.astro";
     import PostHeader from '../components/home/PostHeader.astro';
     import CategoryCloud from "../components/blog/CategoryCloud.astro";
+    import { formatBlogPosts } from "../utils/utils";
+    import RelatedPosts from "../components/blog/RelatedPosts.astro";
 
     const { frontmatter } = Astro.props
-
     const { title, description, date, category, author, image } = frontmatter
+
+    const allPosts = await Astro.glob("../pages/blog/*.md")
+    const formattedPost = formatBlogPosts(allPosts, { sortByDate: false })
+    const relatedPosts = formattedPost.filter((post: any) => post.frontmatter.category === category && post.frontmatter.title !== title).slice(0, 3)
+
 ---
 
 <MainLayout title={title}>
     <PostHeader title={title} date={date} category={category} author={author} image={image} />
     <div class="flex w-full items-center justify-center py-10 lg:py-20">
-        <div class="flex flex-col lg:flex-row lg:w-4/6 gap-6 lg:gap-10">
-            <div class="font-atkinson text-justify text-xl lg:w-3/4 mx-6 lg:mx-0">
+        <div class="flex flex-col lg:flex-row lg:w-4/6 gap-10">
+            <div class="font-atkinson text-justify text-xl lg:w-4/6 mx-6 lg:mx-0">
                 <slot />
             </div>
-            <div class="lg:w-1/4">
-                <h2 class="text-center lg:text-start text-2xl font-semibold font-atkinson">Blog Categories</h2>
-                <CategoryCloud />
+            <div class="lg:w-2/6">
+                <div class="mb-8">
+                    <h2 class="text-center lg:text-start text-2xl font-semibold font-atkinson mb-2">Blog Categories</h2>
+                    <CategoryCloud />
+                </div>
+                {relatedPosts.length > 0 && (
+                <div class="mx-6 lg:mx-0">
+                    <h2 class="text-center lg:text-start text-2xl font-semibold font-atkinson mb-2">Related Posts</h2>
+                    <RelatedPosts relatedPosts={relatedPosts} />
+                </div>
+                )}
             </div>
         </div>
     </div>
