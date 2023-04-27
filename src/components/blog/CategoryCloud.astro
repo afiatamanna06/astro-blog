@@ -1,0 +1,30 @@
+---
+    import { formatBlogPosts, slugify } from "../../utils/utils";
+
+    const allPosts = await Astro.glob("../../pages/blog/*.md")
+    const formattedPost = formatBlogPosts(allPosts)
+    const allCategories = formattedPost.map((item: any) => item.frontmatter.category.toLowerCase()).flat()
+    const processedCategories = allCategories.reduce((acc: any, category: any) => {
+        const value = acc[category] || 0;
+
+        return {
+            ...acc,
+            [category]: value+1
+        }
+    }, {})
+
+    const { showCount } = Astro.props
+
+---
+
+<ul class="flex gap-1 flex-wrap mx-6">
+    {
+        Object.entries(processedCategories).map(([key, val]) => (
+            <li>
+                <a href={`/category/${slugify(key)}/`} class="px-3 py-1 uppercase rounded-sm text-xs text-white bg-[#3945c6] font-medium font-atkinson">
+                    {key} {showCount && `(${val})`}
+                </a>
+            </li>
+        ))
+    }
+</ul>
