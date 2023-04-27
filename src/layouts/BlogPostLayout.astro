@@ -1,6 +1,7 @@
 ---
     import MainLayout from "./MainLayout.astro";
     import PostHeader from '../components/home/PostHeader.astro';
+    import CategoryCloud from "../components/blog/CategoryCloud.astro";
 
     const { frontmatter } = Astro.props
 
@@ -9,10 +10,15 @@
 
 <MainLayout title={title}>
     <PostHeader title={title} date={date} category={category} author={author} image={image} />
-    <div>
-        <div class="font-atkinson text-xl">
-            <slot />
+    <div class="flex w-full items-center justify-center py-10 lg:py-20">
+        <div class="flex flex-col lg:flex-row lg:w-4/6 gap-6 lg:gap-10">
+            <div class="font-atkinson text-justify text-xl lg:w-3/4 mx-6 lg:mx-0">
+                <slot />
+            </div>
+            <div class="lg:w-1/4">
+                <h2 class="text-center lg:text-start text-2xl font-semibold font-atkinson">Blog Categories</h2>
+                <CategoryCloud />
+            </div>
         </div>
-        <div></div>
     </div>
 </MainLayout>
