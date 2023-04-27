@@ -1,0 +1,18 @@
+---
+    import CommonButton from "./CommonButton.astro";
+
+    const { prevUrl, nextUrl } = Astro.props
+---
+
+<nav>
+    {
+        prevUrl && (
+            <CommonButton name="Previous" href={prevUrl} className={"border-2 border-black text-black text-lg px-8 py-2 rounded font-atkinson"} />
+        )
+    }
+    {
+        nextUrl && (
+            <CommonButton name="Next" href={nextUrl} className={"border-2 border-black text-black text-lg px-8 py-2 rounded font-atkinson"} />
+        )
+    }
+</nav>
