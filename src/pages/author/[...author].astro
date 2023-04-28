@@ -7,7 +7,7 @@
         const allPosts = await Astro.glob("../blog/*.md")
         const formattedPost = formatBlogPosts(allPosts)
         const allAuthors = [...new Set(formattedPost.map((post: any) => post.frontmatter.author).flat())]
-        return allAuthors.map((author: string) => { 
+        return allAuthors.map((author: any | string) => { 
             const authorPosts = formattedPost.filter((post: any) => post.frontmatter.author === author)
             return {
                 params: {
@@ -26,10 +26,10 @@
 ---
 
 <MainLayout title={authorName}>
-    <div class="flex justify-center pt-20 pb-10">
+    <div class="flex justify-center pt-10 lg:pt-20 pb-10">
         <div class="flex flex-col">
-            <h1 class="text-4xl font-semibold mb-6 font-atkinson">Posts by {authorName}</h1>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <h1 class="text-4xl font-semibold mb-6 font-atkinson px-6 lg:px-0">Posts by {authorName}</h1>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 px-6 lg:px-0">
                 {
                 posts.map((post: any) => (
                 <PostCard frontmatter={post.frontmatter} url={post.url} />

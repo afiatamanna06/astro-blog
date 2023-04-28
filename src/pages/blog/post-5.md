@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/BlogPostLayout.astro"
-title: JavaScript SchmavaScript
+title: JavaScript Schmava Script
 date: 2022-12-05
 author: Victoria Greenfelder
 image: {

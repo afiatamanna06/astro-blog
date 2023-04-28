@@ -9,11 +9,11 @@
 ---
 
 <MainLayout title="Home">
-    <section class="w-full flex flex-row justify-center pt-20 pb-12 lg:pb-24">
+    <section class="w-full flex flex-row justify-center pt-6 lg:pt-20 pb-12 lg:pb-24">
         <div class="flex flex-col lg:w-3/5 lg:flex-row gap-6 lg:gap-8 items-center">
             <img src="/images/headshot.jpg" class="lg:rounded-lg lg:w-[23rem] lg:h-[23rem]" alt="" />
             <div class="flex flex-col items-center lg:items-start gap-4">
-                <h1 class="text-5xl lg:text-6xl font-bold font-atkinson">My Blog</h1>
+                <h1 class="text-4xl lg:text-6xl font-bold font-atkinson">My Blog</h1>
                 <p class="text-xl text-justify px-6 lg:px-0 font-atkinson pb-6 lg:pb-0">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam quidem tempora beatae mollitia
                     architecto optio sapiente repellendus natus.
@@ -22,9 +22,9 @@
             </div>
         </div>
     </section>
-    <div class="flex justify-center py-10">
+    <div class="flex justify-center py-10 px-6 lg:px-0">
         <div class="flex flex-col">
-            <h1 class="text-5xl lg:text-6xl font-bold font-atkinson mb-8">New Blog Posts</h1>
+            <h1 class="text-4xl lg:text-6xl font-bold font-atkinson mb-8">New Blog Posts</h1>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
                 {
                 formattedPost.map((post: any) => (
