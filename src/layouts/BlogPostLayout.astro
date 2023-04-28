@@ -10,7 +10,7 @@
 
     const allPosts = await Astro.glob("../pages/blog/*.md")
     const formattedPost = formatBlogPosts(allPosts, { sortByDate: false })
-    const relatedPosts = formattedPost.filter((post: any) => post.frontmatter.category === category && post.frontmatter.title !== title).slice(0, 3)
+    const relatedPosts = formattedPost.filter((post: any) => post.frontmatter.category.toLowerCase() === category.toLowerCase() && post.frontmatter.title !== title).slice(0, 3)
 
 ---
 
