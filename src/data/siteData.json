@@ -1,0 +1,8 @@
+{
+  "title": "My Astro Blog",
+  "description": "A blog projct built in astro",
+  "image": {
+    "src": "/images/image-default.png",
+    "alt": "My Astro Blog"
+  }
+}

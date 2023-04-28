@@ -7,12 +7,20 @@
 <nav>
     {
         prevUrl && (
-            <CommonButton name="Previous" href={prevUrl} className={"border-2 border-black text-black text-lg px-8 py-2 rounded font-atkinson"} />
+            <CommonButton 
+                name="Previous" 
+                href={prevUrl} 
+                className={"border-2 flex items-center gap-2 border-black text-black text-lg px-8 py-2 rounded font-atkinson"} 
+                icon={{ name: "tabler:arrow-big-left-line" , side: "left" , }} />
         )
     }
     {
         nextUrl && (
-            <CommonButton name="Next" href={nextUrl} className={"border-2 border-black text-black text-lg px-8 py-2 rounded font-atkinson"} />
+            <CommonButton 
+                name="Next" 
+                href={nextUrl} 
+                className={"border-2 flex items-center gap-2 border-black text-black text-lg px-8 py-2 rounded font-atkinson"} 
+                icon={{ name: "tabler:arrow-big-right-line" , side: "right" , }} />
         )
     }
 </nav>

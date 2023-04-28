@@ -1,7 +1,9 @@
 ---
-const date = new Date().getFullYear().toString()
+    import { Icon } from "astro-icon";
+    const date = new Date().getFullYear().toString()
 ---
 
-<footer class="bg-white w-[full] flex items-center px-6 lg:px-[15rem] py-6">
-    <p class="text-sm font-atkinson">Copyright © {date} | All rights reserved</p>
+<footer class="bg-white w-[full] flex flex-col lg:flex-row items-center justify-between gap-2 px-6 lg:px-[12rem] py-6">
+    <p class="text-sm font-atkinson text-center lg:text-start">Copyright © {date} | All rights reserved</p>
+    <a href="/rss.xml" class="flex gap-1"><p class="text-sm font-atkinson">Subscribe to RSS</p><Icon name="tabler:rss" width="19" height="19" /></a>
 </footer>
