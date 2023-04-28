@@ -25,7 +25,7 @@
     <div class="flex justify-center py-10 px-6 lg:px-0">
         <div class="flex flex-col">
             <h1 class="text-4xl lg:text-6xl font-bold font-atkinson mb-8">New Blog Posts</h1>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
                 formattedPost.map((post: any) => (
                 <PostCard frontmatter={post.frontmatter} url={post.url} />
